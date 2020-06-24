@@ -36,7 +36,7 @@
   if (typeof XMLHttpRequest !== 'undefined') {
     __doRequest(
       method, url, contentType, accept, headers, body, _onRequestError, callback
-    ) {
+    ) => {
       var xhr = new XMLHttpRequest
       xhr.open(method, url, true)
       xhr.setRequestHeader('Content-Type', contentType)
@@ -56,7 +56,7 @@
   } else if (typeof require === 'function') {
     __doRequest(
       method, url, contentType, accept, headers, body, onRequestError, callback
-    ) {
+    ) => {
       var http = require('http'), https = require('https'), URL = require('url'), uri = URL.parse(url)
       var req = (uri.protocol === 'https:' ? https : http).request({
         protocol: uri.protocol,
