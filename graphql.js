@@ -34,7 +34,7 @@
   let __doRequest = null;
   
   if (typeof XMLHttpRequest !== 'undefined') {
-    __doRequest(
+    __doRequest = (
       method, url, contentType, accept, headers, body, _onRequestError, callback
     ) => {
       var xhr = new XMLHttpRequest
@@ -54,7 +54,7 @@
       xhr.send(body)
     }
   } else if (typeof require === 'function') {
-    __doRequest(
+    __doRequest = (
       method, url, contentType, accept, headers, body, onRequestError, callback
     ) => {
       var http = require('http'), https = require('https'), URL = require('url'), uri = URL.parse(url)
